@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Пользователи</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Пользователи</h1>
+    <span id="count" class="muted"></span>
+    <div class="who">
+      <span id="who"></span>
+      <button type="button" id="to-students" class="secondary">Студенты</button>
+      <button type="button" id="logout" class="secondary">Выйти</button>
+    </div>
+  </header>
+
+  <main class="users-layout">
+    <section class="card">
+      <h2 id="form-title">Новый пользователь</h2>
+      <form id="form" novalidate>
+        <label>Email *
+          <input name="email" type="email" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="student2@example.com">
+        </label>
+        <label id="password-row">Пароль *
+          <input name="password" type="password" autocomplete="new-password">
+        </label>
+        <fieldset class="roles">
+          <legend>Роли *</legend>
+          <label class="check"><input type="checkbox" name="role" value="ADMIN"> Администратор <span class="muted">(можно всё)</span></label>
+          <label class="check"><input type="checkbox" name="role" value="STUDENT"> Студент <span class="muted">(только просмотр)</span></label>
+        </fieldset>
+        <p id="form-error" class="error" hidden></p>
+        <div class="actions">
+          <button type="submit" id="submit">Создать</button>
+          <button type="button" id="cancel" class="secondary" hidden>Отмена</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Список пользователей</h2>
+      <ul id="list" class="ulist"></ul>
+      <p id="state" class="muted"></p>
+    </section>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="auth.js"></script>
+  <script src="users.js"></script>
+</body>
+</html>
